@@ -1,15 +1,16 @@
 # graphClustering
 A little tool of python to divide graphs into regions through clustering.
 
-tool requirement:
+Package requirement:
                   multiprocessing;
                   cv2;
                   threading;
                   numpy;
-                  PIL if you want to use the image type convertion function;
-performance:
+                  PIL if image type convertion function is used;
+                  
+Performance:
                   linear time to the number of points in the image;
-                  employed multi-processing;
+                  employed multiprocessing;
                   performance requires more improvement:
                               i.e.: the function needs around 30 seconds to
                                     process a 353*546 image of approximately
@@ -17,7 +18,7 @@ performance:
                                     test on 4-core i7 processor Mac pro 15
                                     inch);
 
-possible update plans:
+Possible update plans:
                   faster algorithm of cluster diffusion from central point, previous
                          attemp on multiprocessing is failed due to failure to overcome
                          the performance loss of process initiating and communication;
