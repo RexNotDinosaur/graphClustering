@@ -1,6 +1,9 @@
 # graphClustering
 A little tool of python to divide graphs into regions through clustering.
 
+To use it you need to download the whole package but the functioning part
+can be found in the file regionDividor.py
+
 Package requirement:
                   multiprocessing;
                   cv2;
