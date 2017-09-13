@@ -17,8 +17,14 @@ performance:
                                     test on 4-core i7 processor Mac pro 15
                                     inch)
 
-update in need:
+possible update plans:
                   faster algorithm of cluster diffusion from central point, attemp
                          on multi-processor is failed
-                  providing an algorithm to compress the image data so to linearly
+                  providing an algorithm to compress the image data as to linearly
                          improve performance
+                  re-write some key computationally intense tasks in faster languages
+                          like C, C++
+
+Note: the function finding the gradient dictionary is called named as fast because it
+      has been improved with multiprocessing
+                
