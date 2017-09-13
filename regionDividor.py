@@ -135,7 +135,8 @@ def perpendicular(a:tuple,b:tuple,anglethreshold:float)->bool:
 
 
 if __name__=='__main__':
-
+    # this is a demo on how to do clustering with the function provided above, you might want to change the file names
+    # and paramters
     fn = '/Users/Rex/Desktop/temppic/38.png'
     leftbehindportion = 0.1
     displacement = 3
