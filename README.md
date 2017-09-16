@@ -26,14 +26,13 @@ Performance:
                           at least 4 times compared to the original one (the portion 
                           of the data points left is in the order of compression factor 
                           squared)
+                  a compression method based on portion provided in utils.
                       
 
 Possible update plans:
                   faster algorithm of cluster diffusion from central point, previous
                          attemp on multiprocessing is failed due to failure to overcome
-                         the performance loss of process initiating and communication;
-                  providing a more deliberate algorithm to compress the image data as to 
-                         linearly improve performance;                       
+                         the performance loss of process initiating and communication;                      
                   re-write some key computationally intense tasks in faster languages
                           like C, C++;
                   finding a solution to the technical flaw that the algorithm does not
