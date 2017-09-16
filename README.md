@@ -21,10 +21,11 @@ Performance:
                                     40 clusters (US map is used to conduct the
                                     test on 4-core i7 processor Mac pro 15
                                     inch);
-                  a crude way of image compression provided, only support compression
-                          factor of integers and the data size will shrink at least 4
-                          times compared to the original one (the portion of the data
-                          points left is in the order of compression factor squared)
+                  a crude way of image compression provided in utils, only support 
+                          compression factor of integers and the data size will shrink 
+                          at least 4 times compared to the original one (the portion 
+                          of the data points left is in the order of compression factor 
+                          squared)
                       
 
 Possible update plans:
