@@ -164,7 +164,7 @@ if __name__=='__main__':
     counting=countingThreading(dt=5,continuelist=continuelist)
     counting.start()
 
-    imgdic,rows,cols=crudeImageDicCompression(*imageDic(fn),compressionfactor=2)
+    imgdic,rows,cols=imageDic(fn)
 
     print('imgdic')
     graddic=fastGradDic(imgdic,(rows,cols),displacement)
