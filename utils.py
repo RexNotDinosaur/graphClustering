@@ -4,6 +4,7 @@ import time
 import threading
 import os
 from PIL import Image
+import random
 
 def countingThreading(dt,continuelist):
     __doc__ = '''
@@ -135,6 +136,58 @@ def crudeImageDicCompression(imgdic:dict,*args,compressionfactor:int):
         for c in range(0,cols//compressionfactor,1):
             compresseddic[(r,c)]=imgdic[(r*compressionfactor,c*compressionfactor)]
     return compresseddic,rows//compressionfactor,cols//compressionfactor
+
+def portionImageDicCompression(imgdic:dict,*args,points:int,outof:int)->tuple:
+    __doc__ = '''
+    :param imgdic: the original image dictionary
+    :param args: need to be exactly two piece of data, tuple and unpacked data accepted,
+                    i.e you can input rows,cols or (rows,cols) for args as you like
+    :param points: how many points you take every a certain number of points, determined by the parameter outof
+    :param outof: form the fraction along with points: points/outof
+    :return: tuple compressed image dictionary,rows,columns
+    '''
+    try:
+        rows,cols=args
+    except ValueError:
+        shape,=args
+        rows,cols=shape
+    if points>outof:
+        raise ValueError('Numerator larger than Denominator')
+    rowstopick=picknumbers(rows,points,outof)
+    colstopick=picknumbers(cols,points,outof)
+    rowstopick.sort()
+    colstopick.sort()
+    compressed={}
+
+    for r in range(0,len(rowstopick)):
+        for c in range(0,len(colstopick)):
+            compressed[(r,c)]=imgdic[(rowstopick[r],colstopick[c])]
+    return compressed,len(rowstopick),len(colstopick)
+
+def picknumbers(upto:int,numerator:int,denominator:int)->list:
+    __doc__ = '''
+    picking numbers in range(0,upto) following the rule of picking the number of numerator for every the number of 
+    denominator of points
+    :param upto: upper bound of the number to pick
+    :param numerator: the numerator of the fraction
+    :param denominator: denominator of the fraction
+    :return: list of picked numbers
+    '''
+    resultlist=[]
+
+
+    start=0
+    while start<upto:
+        end=min(start+denominator,upto)
+
+        pointnum=end-start
+        if pointnum<=numerator:
+            resultlist.extend(range(start,end))
+        else:
+            resultlist.extend(random.sample(list(range(start,end)),numerator))
+        start+=denominator
+    return resultlist
+
 
 # the files have already been converted and the function is not needed for now
 def convertGifToPng(path:str):

@@ -5,7 +5,7 @@ import random
 import threading
 from utils import norm,innerproduct,diff,countingThreading
 from fastGradient import fastGradDic,imageDic
-
+from utils import portionImageDicCompression
 
 
 
@@ -145,7 +145,7 @@ if __name__=='__main__':
     counting=countingThreading(dt=5,continuelist=continuelist)
     counting.start()
 
-    imgdic,rows,cols=imageDic(fn)
+    imgdic,rows,cols=portionImageDicCompression(*imageDic(fn),points=7,outof=8)
 
     print('imgdic')
     graddic=fastGradDic(imgdic,(rows,cols),displacement)
