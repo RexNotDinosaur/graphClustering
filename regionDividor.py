@@ -130,26 +130,7 @@ def perpendicular(a:tuple,b:tuple,anglethreshold:float)->bool:
     return abs(uniformouter)>=math.sin(math.pi*(90-anglethreshold)/180)
 
 
-def crudeImageDicCompression(imgdic:dict,*args,compressionfactor:int):
-    '''
-    a crude way of compressing image dictionary, suited for very simple images
-    :param imgdic: the original image dictionary
-    :param args: need to be exactly two piece of data, tuple and unpacked data accepted,
-                    i.e you can input rows,cols or (rows,cols) for args as you like
-    :param compressionfactor: a factor of compressing the image, note that the image gets
-                                smaller in a square factor of compressionfactor
-    :return: the compressed image data as a dictionary with position as key
-    '''
-    try:
-        rows,cols=args
-    except ValueError:
-        shape,=args
-        rows,cols=shape
-    compresseddic={}
-    for r in range(0,rows//compressionfactor,1):
-        for c in range(0,cols//compressionfactor,1):
-            compresseddic[(r,c)]=imgdic[(r*compressionfactor,c*compressionfactor)]
-    return compresseddic,rows//compressionfactor,cols//compressionfactor
+
 
 
 if __name__=='__main__':
